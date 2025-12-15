@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./:/app
+      - cargo_registry:/usr/local/cargo/registry
+      - cargo_git:/usr/local/cargo/git
+      - target_cache:/app/target
+    working_dir: /app
+    tty: true
+    stdin_open: true
+    ports:
+      - "8080:8080"  # 웹서버 만들면 사용
+volumes:
+  cargo_registry:
+  cargo_git:
+  target_cache:
