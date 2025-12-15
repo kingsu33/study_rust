@@ -1,0 +1,12 @@
+FROM rust:1.75-bookworm
+
+# 편의 패키지(필요시 더 추가)
+RUN apt-get update && apt-get install -y \
+    pkg-config \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# 개발할 때는 소스를 볼륨 마운트할 거라 COPY는 최소화/생략 가능
+CMD ["bash"]
