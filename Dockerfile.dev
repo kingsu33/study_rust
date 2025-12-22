@@ -6,6 +6,9 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     && rm -rf /var/lib/apt/lists/*
 
+# rustfmt, clippy 미리 설치
+RUN rustup component add rustfmt clippy
+
 WORKDIR /app
 
 # 개발할 때는 소스를 볼륨 마운트할 거라 COPY는 최소화/생략 가능
