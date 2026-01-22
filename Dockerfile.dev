@@ -1,4 +1,4 @@
-FROM rust:1.75-bookworm
+FROM rust:1.84-bookworm
 
 # 편의 패키지(필요시 더 추가)
 RUN apt-get update && apt-get install -y \
